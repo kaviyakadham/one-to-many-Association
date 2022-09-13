@@ -1,0 +1,67 @@
+class Department
+{
+    private int d_id;
+    private String d_name;
+    
+    public Department(int d_id,String d_name)
+    {
+        this.d_id=d_id;
+        this.d_name=d_name;
+    }
+    
+    public int getDepId()
+    {
+        return d_id;
+    }
+    public String getDepName()
+    {
+        return d_name;
+    }
+    
+}
+class College
+{
+    private String college_name;
+    private String college_address;
+    
+    private Department[] departments;
+    
+    public College(String college_name,String college_address,Department[] departments)
+    {
+        this.college_name=college_name;
+        this.college_address=college_address;
+        this.departments=departments;
+    }
+    
+    public void display()
+    {
+       System.out.println("college name:"+college_name);
+       System.out.println("college address:"+college_address);
+       System.out.println("*****department details*****");
+       
+       for(Department dep:departments)
+       {
+           System.out.println();
+           System.out.println("department id:"+dep.getDepId());
+           System.out.println("department name:"+dep.getDepName());
+       }
+    }
+}
+public class Main
+{
+    public static void main(String[]args)
+    {
+        Department dep1=new Department(201,"B.C.A");
+        Department dep2=new Department(301,"M.C.A");
+        Department dep3=new Department(405,"B.COM");
+        Department[] departments=new Department[3];
+        departments[0]=dep1;
+        departments[1]=dep2;
+        departments[2]=dep3;
+        
+        College college=new College("DRBCCC HINDU College","pattabiram",departments);
+        college.display();
+        
+        
+    }
+}
